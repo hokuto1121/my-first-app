@@ -1,4 +1,5 @@
 name: Claude Code
+
 on:
   issue_comment:
     types: [created]
@@ -9,7 +10,8 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
-　id-token: write
+  id-token: write        # ← permissions の仲間なので同じ段
+
 jobs:
   claude:
     runs-on: ubuntu-latest
@@ -17,4 +19,4 @@ jobs:
       - uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-　　　　　　github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # ← with の仲間なので同じ段
